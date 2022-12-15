@@ -1,0 +1,85 @@
+#include<stdio.h>
+int opc, i, k=1;
+struct basketbolista{
+  char nombre [15];
+  int edad;
+  struct equipos{
+  char nombreequipo[15];
+  int fecha;
+  float costofichaje;
+}equipos[2];
+}basketbolista[2];
+
+//Prototipo
+void Menu();
+void ingresar();
+void mostrar();
+void salir();
+
+main(){
+  Menu();
+  return 0;
+}
+//Definicion
+void ingresar(){
+  for(i=0;i<2;i++){
+    fflush(stdin);
+    printf("Ingresa el Nombre del basketbolista numero %d: ", i+1);
+        gets(basketbolista[i].nombre);
+        fflush(stdin);
+        printf("Ingresa la edad del basketbolista numero %d: ", i+1);
+        scanf("%d", &basketbolista[i].edad);
+        fflush(stdin);
+        printf("Ingresa el nombre del primer equipo del basketbolista %d: ", i+1);
+        gets(basketbolista[i].equipos[i].nombreequipo);
+        fflush(stdin);
+        printf("Ingresa la fecha de creacion del equipo # %d del basketbolista numero %d: ", i+1, i+1);
+        scanf("%d", &basketbolista[i].equipos[i].fecha);
+        fflush(stdin);
+        printf("Ingresa el costo de fichaje del basketbolista # %d por el equipo # %d : ", i+1, i+1);
+        scanf("%f", &basketbolista[i].equipos[i].costofichaje);
+        fflush(stdin);
+}
+}
+void mostrar(){
+  for(i=0;i<2;i++){
+  fflush(stdin);
+    printf("El nombre del futbolista numero %d es: %s ", i+1, basketbolista[i].nombre);
+    fflush(stdin);
+    printf("\nLa edad de %s es: %d", basketbolista[i].nombre, basketbolista[i].edad);
+    fflush(stdin);
+    printf("\nEl nombre del equipo colocado donde jugo o juega %s es: %s", basketbolista[i].nombre, basketbolista[i].equipos[i].nombreequipo);
+    fflush(stdin);
+    printf("\nLa fecha de creacion del equipo %s donde juega o jugo %s es: %d", basketbolista[i].equipos[i].nombreequipo, basketbolista[i].nombre, basketbolista[i].equipos[i].fecha);
+    fflush(stdin);
+    printf("\nEl dinero que pago %s por el basketbolista %s es: %f \n", basketbolista[i].equipos[i].nombreequipo, basketbolista[i].nombre, basketbolista[i].equipos[i].costofichaje);
+    fflush(stdin);
+}
+}
+void salir(){
+  k--;
+}
+
+void Menu(){
+  do{
+  printf(" 1. Ingresar datos.\n 2. Mostrar Datos.\n 3. Salir.\n Que opcion desea usar: ");
+  scanf("%d", &opc);
+  if(opc>3 || opc<1){
+    printf("\nOpcion invalida\n");
+    printf("___\n \n");
+  }else{
+ 
+  switch(opc){
+    case 1:
+    ingresar();
+  break;
+      case 2:
+        mostrar();
+  break;
+  case 3:
+    salir();
+    break;
+}
+}
+}while(k);
+}
